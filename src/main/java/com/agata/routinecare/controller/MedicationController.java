@@ -10,7 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
-import java.util.Optional;
+import java.util.List;
 
 @RestController
 @RequestMapping("/medications")
@@ -38,7 +38,22 @@ public class MedicationController {
     }
     
     @GetMapping("/{id}")
-    public Optional<Medication> getMedicationById(@PathVariable Long id) {
-        return medicationRepository.findById(id);
+    public Medication getMedicationById(@PathVariable Long id) {
+        return medicationRepository.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Medication not found"));
+    }
+
+    @GetMapping
+    public List<Medication> getAllMedications() {
+        return medicationRepository.findAll();
+    }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void removeMedication(@PathVariable Long id) {
+        Medication medication = medicationRepository.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Medication not found"));
+
+        medicationRepository.delete(medication);
     }
 }
