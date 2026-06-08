@@ -1,6 +1,7 @@
 package com.agata.routinecare.controller;
 
 import com.agata.routinecare.dto.MedicationDTO;
+import com.agata.routinecare.dto.UpdateDTO;
 import com.agata.routinecare.entity.Medication;
 import com.agata.routinecare.entity.User;
 import com.agata.routinecare.repository.MedicationRepository;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/medications")
@@ -32,6 +34,7 @@ public class MedicationController {
         Medication medication = new Medication();
         medication.setName(request.getName());
         medication.setDosage(request.getDosage());
+        medication.setScheduledTime(request.getScheduledTime());
         medication.setUser(user);
 
         return medicationRepository.save(medication);
@@ -55,5 +58,24 @@ public class MedicationController {
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Medication not found"));
 
         medicationRepository.delete(medication);
+    }
+
+    @PatchMapping("/{id}")
+    public Medication updateMedication(@PathVariable Long id, @RequestBody UpdateDTO update) {
+        Medication medication = medicationRepository.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Medication not found"));
+
+        if (update.getName() != null) {
+            medication.setName(update.getName());
+        }
+
+        if (update.getDosage() != null) {
+            medication.setDosage(update.getDosage());
+        }
+
+        if (update.getScheduledTime() != null) {
+            medication.setScheduledTime(update.getScheduledTime());
+        }
+        return medicationRepository.save(medication);
     }
 }

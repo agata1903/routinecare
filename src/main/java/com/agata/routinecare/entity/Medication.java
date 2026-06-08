@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
+import java.time.LocalTime;
+
 @Entity
 public class Medication {
 
@@ -17,6 +19,8 @@ public class Medication {
     @NotNull
     private String dosage;
 
+    private LocalTime scheduledTime;
+
     @ManyToOne
     @JoinColumn(name = "user_id")
     @NotNull
@@ -25,16 +29,18 @@ public class Medication {
     public Medication() {
     }
 
-    public Medication(Long id, String name, String dosage, User user) {
+    public Medication(Long id, String name, String dosage, LocalTime scheduledTime, User user) {
         this.id = id;
         this.name = name;
         this.dosage = dosage;
+        this.scheduledTime = scheduledTime;
         this.user = user;
     }
 
-    public Medication(String name, String dosage, User user) {
+    public Medication(String name, String dosage, LocalTime scheduledTime, User user) {
         this.name = name;
         this.dosage = dosage;
+        this.scheduledTime = scheduledTime;
         this.user = user;
     }
 
@@ -56,6 +62,14 @@ public class Medication {
 
     public void setDosage(String dosage) {
         this.dosage = dosage;
+    }
+
+    public LocalTime getScheduledTime() {
+        return scheduledTime;
+    }
+
+    public void setScheduledTime(LocalTime scheduledTime) {
+        this.scheduledTime = scheduledTime;
     }
 
     public User getUser() {

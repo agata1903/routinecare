@@ -2,21 +2,19 @@ package com.agata.routinecare.dto;
 
 import java.time.LocalTime;
 
-public class MedicationDTO {
+public class UpdateDTO {
 
     private String name;
     private String dosage;
     private LocalTime scheduledTime;
-    private Long userId;
 
-    public MedicationDTO() {
+    public UpdateDTO() {
     }
 
-    public MedicationDTO(String name, String dosage, LocalTime scheduledTime, Long userId) {
+    public UpdateDTO(String name, String dosage, LocalTime scheduledTime) {
         this.name = name;
         this.dosage = dosage;
         this.scheduledTime = scheduledTime;
-        this.userId = userId;
     }
 
     public String getName() {
@@ -41,13 +39,5 @@ public class MedicationDTO {
 
     public void setScheduledTime(LocalTime scheduledTime) {
         this.scheduledTime = scheduledTime;
-    }
-
-    public Long getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Long userId) {
-        this.userId = userId;
     }
 }
