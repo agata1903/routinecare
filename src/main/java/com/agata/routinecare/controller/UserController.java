@@ -32,6 +32,11 @@ public class UserController {
         return userRepository.save(user);
     }
 
+    @GetMapping
+    public List<User> getAllUsers() {
+        return userRepository.findAll();
+    }
+
     @GetMapping("/{id}")
     public Optional<User> getUserById(@PathVariable Long id) {
         return userRepository.findById(id);

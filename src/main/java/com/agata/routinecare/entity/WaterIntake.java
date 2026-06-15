@@ -3,6 +3,7 @@ package com.agata.routinecare.entity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 
+import java.time.LocalDate;
 import java.time.LocalTime;
 
 @Entity
@@ -16,7 +17,10 @@ public class WaterIntake {
     private Double amountMl;
 
     @NotNull
-    private LocalTime createdAt;
+    private LocalDate intakeDate;
+
+    @NotNull
+    private LocalTime intakeTime;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
@@ -26,19 +30,21 @@ public class WaterIntake {
     public WaterIntake() {
     }
 
-    public WaterIntake(Long id, Double amountMl, LocalTime createdAt, User user) {
+    public WaterIntake(Long id, Double amountMl, LocalDate intakeDate, LocalTime intakeTime, User user) {
         this.id = id;
         this.amountMl = amountMl;
-        this.createdAt = createdAt;
+        this.intakeDate = intakeDate;
+        this.intakeTime = intakeTime;
         this.user = user;
     }
 
-    public WaterIntake(Double amountMl, LocalTime createdAt, User user) {
+    public WaterIntake(Double amountMl, LocalDate intakeDate, LocalTime intakeTime, User user) {
         this.amountMl = amountMl;
-        this.createdAt = createdAt;
+        this.intakeDate = intakeDate;
+        this.intakeTime = intakeTime;
         this.user = user;
     }
-
+    
     public Long getId() {
         return id;
     }
@@ -51,12 +57,20 @@ public class WaterIntake {
         this.amountMl = amountMl;
     }
 
-    public LocalTime getCreatedAt() {
-        return createdAt;
+    public LocalDate getIntakeDate() {
+        return intakeDate;
     }
 
-    public void setCreatedAt(LocalTime createdAt) {
-        this.createdAt = createdAt;
+    public void setIntakeDate(LocalDate intakeDate) {
+        this.intakeDate = intakeDate;
+    }
+
+    public LocalTime getIntakeTime() {
+        return intakeTime;
+    }
+
+    public void setIntakeTime(LocalTime intakeTime) {
+        this.intakeTime = intakeTime;
     }
 
     public User getUser() {
