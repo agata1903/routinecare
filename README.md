@@ -29,6 +29,8 @@ O objetivo do projeto é auxiliar usuários no acompanhamento da rotina de autoc
 - Cadastro de medicamentos
 - Listagem de medicamentos por usuário
 - Registro de medicamento tomado
+- Atualização de registro de medicamento tomado
+- Remoção de registro
 
 ### Hidratação
 - Registro de consumo de água
