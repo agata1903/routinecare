@@ -1,17 +1,14 @@
 package com.agata.routinecare.dto;
 
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-
-@JsonPropertyOrder({"name", "email"})
-public class UserDTO {
+public class UpdateUserDTO {
 
     private String name;
     private String email;
 
-    public UserDTO() {
+    public UpdateUserDTO() {
     }
 
-    public UserDTO(String name, String email) {
+    public UpdateUserDTO(String name, String email) {
         this.name = name;
         this.email = email;
     }

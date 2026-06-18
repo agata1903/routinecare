@@ -2,16 +2,16 @@ package com.agata.routinecare.dto;
 
 import java.time.LocalTime;
 
-public class UpdateDTO {
+public class UpdateMedDTO {
 
     private String name;
     private String dosage;
     private LocalTime scheduledTime;
 
-    public UpdateDTO() {
+    public UpdateMedDTO() {
     }
 
-    public UpdateDTO(String name, String dosage, LocalTime scheduledTime) {
+    public UpdateMedDTO(String name, String dosage, LocalTime scheduledTime) {
         this.name = name;
         this.dosage = dosage;
         this.scheduledTime = scheduledTime;

@@ -1,7 +1,7 @@
 package com.agata.routinecare.controller;
 
 import com.agata.routinecare.dto.MedicationDTO;
-import com.agata.routinecare.dto.UpdateDTO;
+import com.agata.routinecare.dto.UpdateMedDTO;
 import com.agata.routinecare.entity.Medication;
 import com.agata.routinecare.entity.User;
 import com.agata.routinecare.repository.MedicationRepository;
@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/medications")
@@ -61,7 +60,7 @@ public class MedicationController {
     }
 
     @PatchMapping("/{id}")
-    public Medication updateMedication(@PathVariable Long id, @RequestBody UpdateDTO update) {
+    public Medication updateMedication(@PathVariable Long id, @RequestBody UpdateMedDTO update) {
         Medication medication = medicationRepository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Medication not found"));
 

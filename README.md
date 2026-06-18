@@ -18,6 +18,7 @@ O objetivo do projeto é auxiliar usuários no acompanhamento da rotina de autoc
 - Spring Data JPA
 - PostgreSQL
 - Maven
+- Postman para testes
 
 ## Funcionalidades
 
