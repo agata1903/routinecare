@@ -1,5 +1,6 @@
 package com.agata.routinecare.controller;
 
+import com.agata.routinecare.dto.UpdateWaterDTO;
 import com.agata.routinecare.dto.WaterDTO;
 import com.agata.routinecare.entity.User;
 import com.agata.routinecare.entity.WaterIntake;
@@ -42,6 +43,22 @@ public class WaterController {
         register.setUser(user);
 
         return waterRepository.save(register);
+    }
+
+    @PatchMapping("/{id}")
+    public WaterIntake updateIntake(@PathVariable Long id, @RequestBody UpdateWaterDTO dataRequest) {
+        WaterIntake intake = waterRepository.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Register not found"));
+
+        if (dataRequest.getAmountMl() != null) {
+            intake.setAmountMl(dataRequest.getAmountMl());
+        }
+
+        if (dataRequest.getIntakeTime() != null) {
+            intake.setIntakeTime(dataRequest.getIntakeTime());
+        }
+
+        return waterRepository.save(intake);
     }
 
 }
