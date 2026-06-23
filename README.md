@@ -25,6 +25,8 @@ O objetivo do projeto é auxiliar usuários no acompanhamento da rotina de autoc
 ### Usuários
 - Cadastro de usuário
 - Busca de usuário
+- Atualização de registro de usuário
+- Remoção de usuário
 
 ### Medicamentos
 - Cadastro de medicamentos
@@ -36,3 +38,4 @@ O objetivo do projeto é auxiliar usuários no acompanhamento da rotina de autoc
 ### Hidratação
 - Registro de consumo de água
 - Consulta do total diário consumido
+- Atualização de registro

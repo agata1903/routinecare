@@ -4,7 +4,7 @@ import java.time.LocalTime;
 
 public class WaterDTO {
 
-    private Double amount;
+    private Double amountMl;
     private LocalTime intakeTime;
     private Long userId;
 
@@ -12,17 +12,17 @@ public class WaterDTO {
     }
 
     public WaterDTO(Double amount, LocalTime intakeTime, Long userId) {
-        this.amount = amount;
+        this.amountMl = amount;
         this.intakeTime = intakeTime;
         this.userId = userId;
     }
 
-    public Double getAmount() {
-        return amount;
+    public Double getAmountMl() {
+        return amountMl;
     }
 
-    public void setAmount(Double amount) {
-        this.amount = amount;
+    public void setAmountMl(Double amountMl) {
+        this.amountMl = amountMl;
     }
 
     public LocalTime getIntakeTime() {
