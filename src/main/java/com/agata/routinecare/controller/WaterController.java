@@ -2,17 +2,10 @@ package com.agata.routinecare.controller;
 
 import com.agata.routinecare.dto.UpdateWaterDTO;
 import com.agata.routinecare.dto.WaterDTO;
-import com.agata.routinecare.entity.User;
 import com.agata.routinecare.entity.WaterIntake;
-import com.agata.routinecare.repository.UserRepository;
-import com.agata.routinecare.repository.WaterRepository;
 import com.agata.routinecare.service.WaterService;
-import jakarta.validation.Valid;
-import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.server.ResponseStatusException;
 
-import java.time.LocalDate;
 import java.util.List;
 
 @RestController

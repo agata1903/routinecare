@@ -1,5 +1,6 @@
 package com.agata.routinecare.entity;
 
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 
@@ -7,6 +8,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 @Entity
+@JsonPropertyOrder({"id", "intakeDate", "intakeTime", "amountMl", "user"})
 public class WaterIntake {
 
     @Id
