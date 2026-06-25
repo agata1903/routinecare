@@ -8,6 +8,7 @@ import jakarta.validation.constraints.NotNull;
 import java.time.LocalTime;
 
 @Entity
+@JsonPropertyOrder({"id", "name", "dosage", "scheduledTime", "user"})
 public class Medication {
 
     @Id
