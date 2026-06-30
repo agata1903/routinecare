@@ -29,7 +29,7 @@ public class WaterController {
     }
 
     @PatchMapping("/{id}")
-    public WaterIntake updateIntake(@PathVariable Long id, @RequestBody UpdateWaterDTO dataChanges) {
+    public WaterIntake updateIntake(@PathVariable("id") Long id, @RequestBody UpdateWaterDTO dataChanges) {
         return waterService.updateIntake(id, dataChanges);
     }
 }

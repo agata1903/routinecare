@@ -29,14 +29,19 @@ public class UserController {
         return userService.getAllUsers();
     }
 
+    @GetMapping("/{id}")
+    public User getUserById(@PathVariable("id") Long id) {
+        return userService.getUserById(id);
+    }
+
     @PatchMapping("/{id}")
-    public User updateUser(@PathVariable Long id, @RequestBody UpdateUserDTO userChanges) {
+    public User updateUser(@PathVariable("id") Long id, @RequestBody UpdateUserDTO userChanges) {
         return  userService.updateUser(id, userChanges);
     }
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deleteUser(@PathVariable Long id) {
+    public void deleteUser(@PathVariable("id") Long id) {
         userService.deleteUser(id);
     }
 }

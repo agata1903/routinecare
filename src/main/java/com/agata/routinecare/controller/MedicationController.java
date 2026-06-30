@@ -34,12 +34,12 @@ public class MedicationController {
     }
 
     @PatchMapping("/{id}")
-    public Medication updateMedication(@PathVariable Long id, @RequestBody UpdateMedDTO medChanges) {
+    public Medication updateMedication(@PathVariable("id") Long id, @RequestBody UpdateMedDTO medChanges) {
         return medicationService.updateMedication(id, medChanges);
     }
 
     @DeleteMapping("/{id}")
-    public void deleteMedication(@PathVariable Long id) {
+    public void deleteMedication(@PathVariable("id") Long id) {
         medicationService.removeMedication(id);
     }
 }
