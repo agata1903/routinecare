@@ -1,11 +1,20 @@
 package com.agata.routinecare.dto;
 
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
+
 import java.time.LocalTime;
 
 public class WaterDTO {
 
+    @NotNull(message = "Amount is required")
+    @Positive(message = "Amount must be greater than zero")
     private Double amountMl;
+
+    @NotNull(message = "Intake time is required")
     private LocalTime intakeTime;
+
+    @NotNull(message = "User id is required")
     private Long userId;
 
     public WaterDTO() {

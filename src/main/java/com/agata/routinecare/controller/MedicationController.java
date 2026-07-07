@@ -4,6 +4,7 @@ import com.agata.routinecare.dto.MedicationDTO;
 import com.agata.routinecare.dto.UpdateMedDTO;
 import com.agata.routinecare.entity.Medication;
 import com.agata.routinecare.service.MedicationService;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,7 +20,7 @@ public class MedicationController {
     }
 
     @PostMapping
-    public Medication registerMedication(@RequestBody MedicationDTO medicationData) {
+    public Medication registerMedication(@Valid @RequestBody MedicationDTO medicationData) {
         return medicationService.registerMedication(medicationData);
     }
 
@@ -34,7 +35,7 @@ public class MedicationController {
     }
 
     @PatchMapping("/{id}")
-    public Medication updateMedication(@PathVariable("id") Long id, @RequestBody UpdateMedDTO medChanges) {
+    public Medication updateMedication(@PathVariable("id") Long id, @Valid @RequestBody UpdateMedDTO medChanges) {
         return medicationService.updateMedication(id, medChanges);
     }
 

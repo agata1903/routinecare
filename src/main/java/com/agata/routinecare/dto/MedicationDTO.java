@@ -1,11 +1,20 @@
 package com.agata.routinecare.dto;
 
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
+
 import java.time.LocalTime;
 
 public class MedicationDTO {
 
+    @NotNull(message = "Name is required")
     private String name;
+
+    @NotNull(message = "Dosage is required")
+    @Positive(message = "Dosage must be greater than zero")
     private String dosage;
+
+    @NotNull(message = "Scheduled time is required")
     private LocalTime scheduledTime;
     private Long userId;
 

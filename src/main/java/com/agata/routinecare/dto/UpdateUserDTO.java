@@ -1,8 +1,15 @@
 package com.agata.routinecare.dto;
 
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotNull;
+
 public class UpdateUserDTO {
 
+    @NotNull(message = "Name is required")
     private String name;
+
+    @NotNull(message = "Email is required")
+    @Email(message = "Invalid email")
     private String email;
 
     public UpdateUserDTO() {

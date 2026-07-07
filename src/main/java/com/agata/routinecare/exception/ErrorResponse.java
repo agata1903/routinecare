@@ -10,13 +10,13 @@ public class ErrorResponse {
     private LocalDateTime timestamp;
     private Integer status;
     private String error;
-    private String message;
+    private Object message;
     private String path;
 
     public ErrorResponse() {
     }
 
-    public ErrorResponse(LocalDateTime timestamp, Integer status, String error, String message, String path) {
+    public ErrorResponse(LocalDateTime timestamp, Integer status, String error, Object message, String path) {
         this.timestamp = timestamp;
         this.status = status;
         this.error = error;
@@ -48,11 +48,11 @@ public class ErrorResponse {
         this.error = error;
     }
 
-    public String getMessage() {
+    public Object getMessage() {
         return message;
     }
 
-    public void setMessage(String message) {
+    public void setMessage(Object message) {
         this.message = message;
     }
 

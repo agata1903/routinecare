@@ -4,6 +4,7 @@ import com.agata.routinecare.dto.UpdateWaterDTO;
 import com.agata.routinecare.dto.WaterDTO;
 import com.agata.routinecare.entity.WaterIntake;
 import com.agata.routinecare.service.WaterService;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -24,12 +25,12 @@ public class WaterController {
     }
 
     @PostMapping
-    public WaterIntake registerIntake(@RequestBody WaterDTO request) {
+    public WaterIntake registerIntake(@Valid @RequestBody WaterDTO request) {
         return waterService.registerIntake(request);
     }
 
     @PatchMapping("/{id}")
-    public WaterIntake updateIntake(@PathVariable("id") Long id, @RequestBody UpdateWaterDTO dataChanges) {
+    public WaterIntake updateIntake(@PathVariable("id") Long id, @Valid @RequestBody UpdateWaterDTO dataChanges) {
         return waterService.updateIntake(id, dataChanges);
     }
 }

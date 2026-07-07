@@ -4,6 +4,7 @@ import com.agata.routinecare.dto.UpdateUserDTO;
 import com.agata.routinecare.dto.UserDTO;
 import com.agata.routinecare.entity.User;
 import com.agata.routinecare.service.UserService;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,7 +21,7 @@ public class UserController {
     }
 
     @PostMapping
-    public User registerUser(@RequestBody UserDTO userData) {
+    public User registerUser(@Valid @RequestBody UserDTO userData) {
         return userService.registerUser(userData);
     }
 
@@ -35,7 +36,7 @@ public class UserController {
     }
 
     @PatchMapping("/{id}")
-    public User updateUser(@PathVariable("id") Long id, @RequestBody UpdateUserDTO userChanges) {
+    public User updateUser(@PathVariable("id") Long id, @Valid @RequestBody UpdateUserDTO userChanges) {
         return  userService.updateUser(id, userChanges);
     }
 
