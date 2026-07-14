@@ -1,17 +1,19 @@
 package com.agata.routinecare.dto;
 
-import jakarta.validation.constraints.NotNull;
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.Positive;
 
 import java.time.LocalTime;
 
 public class UpdateWaterDTO {
 
-    @NotNull(message = "Amount is required")
+    @Schema(description = "Water amount in milimeters",
+            example = "200.0")
     @Positive(message = "Amount must be greater than zero")
     private Double amountMl;
 
-    @NotNull(message = "Intake time is required")
+    @Schema(description = "Water intake time",
+            example = "05:00:00")
     private LocalTime intakeTime;
 
     public UpdateWaterDTO() {

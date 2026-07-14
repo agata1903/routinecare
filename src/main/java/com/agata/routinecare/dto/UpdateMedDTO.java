@@ -1,20 +1,22 @@
 package com.agata.routinecare.dto;
 
-import jakarta.validation.constraints.NotNull;
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.Positive;
 
 import java.time.LocalTime;
 
 public class UpdateMedDTO {
 
-    @NotNull(message = "Name is required")
+    @Schema(description = "Medication name",
+            example = "Dipirona")
     private String name;
 
-    @NotNull(message = "Dosage is required")
+    @Schema(description = "Medication dosage",
+            example = "1g")
     @Positive(message = "Dosage must be greater than zero")
     private String dosage;
 
-    @NotNull(message = "Schedule time is required")
+    @Schema(description = "Medication scheduled time", example = "14:00:00")
     private LocalTime scheduledTime;
 
     public UpdateMedDTO() {

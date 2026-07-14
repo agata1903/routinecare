@@ -1,14 +1,16 @@
 package com.agata.routinecare.dto;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotNull;
 
 public class UpdateUserDTO {
 
-    @NotNull(message = "Name is required")
+    @Schema(description = "User name",
+            example = "Mary")
     private String name;
 
-    @NotNull(message = "Email is required")
+    @Schema(description = "User email",
+            example = "user@gmail.com")
     @Email(message = "Invalid email")
     private String email;
 
